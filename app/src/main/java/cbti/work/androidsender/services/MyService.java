@@ -9,6 +9,11 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cbti.work.androidsender.dao.ObdReadingDao;
+import cbti.work.androidsender.domain.ObdReading;
 import cbti.work.androidsender.receivers.SendDataBroadcastReceiver;
 
 public class MyService extends Service {
@@ -44,6 +49,16 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand()");
+
+        ObdReadingDao obdReadingDao = new ObdReadingDao(this);
+        List<ObdReading> data = new ArrayList<ObdReading>();
+
+        data = obdReadingDao.list();
+
+        Log.d(TAG, "OPA - " + data.get(1).toString());
+        obdReadingDao.closeConnection();
+        Log.d(TAG, "BD connection closed");
+
         return START_STICKY;
     }
 

@@ -6,13 +6,47 @@
     android:layout_height="match_parent"
     tools:context="cbti.work.androidsender.activities.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="382dp"
+        android:layout_height="510dp"
+        tools:layout_editor_absoluteY="-1dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btnList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="listData"
+            android:text="ListData"
+            tools:layout_editor_absoluteX="251dp"
+            tools:layout_editor_absoluteY="447dp"
+            android:layout_marginBottom="27dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/btnDb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="populateDb"
+            android:text="PopulateDb"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="447dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="33dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
