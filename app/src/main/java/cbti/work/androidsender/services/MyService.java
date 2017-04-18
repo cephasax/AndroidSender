@@ -26,12 +26,12 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         IntentFilter intentf = new IntentFilter();
-
+        Log.d(TAG, "OnCreate");
         //Actions to catch
         intentf.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         intentf.addAction(Intent.ACTION_BOOT_COMPLETED);
 
-        registerReceiver(new SendDataBroadcastReceiver(), new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        registerReceiver(new SendDataBroadcastReceiver(), intentf);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(TAG, "onStartCommand()");
+        Log.d(TAG, "onStartCommand()");
         return START_STICKY;
     }
 
